@@ -7,25 +7,20 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./eventos.component.css']
 })
 export class EventosComponent implements OnInit {
-
   public eventos: any = [];
-  constructor(private _http: HttpClient) { }
+
+  constructor(private _http: HttpClient) {}
 
   ngOnInit() {
     this.getEventos();
   }
 
-  getEventos(){
-
+  getEventos() {
     this._http.get('http://localhost:5000/api/values').subscribe(
-      (res: any) => { 
-        if(res.length > 0){ 
-          this.eventos = res;
-          console.log(this.eventos);
-        }
+      (res: any) => {
+        if (res.length > 0) { this.eventos = res; }
       },
-      (err) => {
-        console.error(err);
-      });
+      err => { console.error(err); }
+    );
   }
 }

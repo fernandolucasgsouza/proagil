@@ -1,11 +1,11 @@
 <div class="form-inline">
   <div class="form-group mb-2">
-     <input 
-      type="text" 
-      class="form-control mr-2" 
+     <input
+      type="text"
+      class="form-control mr-2"
       placeholder="Pesquisar"
       [(ngModel)]="filtroLista">
-    <button class="btn btn-outline-success">buscar</button>  
+    <button class="btn btn-outline-success">buscar</button>
   </div>
 </div>
 <h5>Filtro: {{filtroLista}}</h5>
@@ -15,9 +15,9 @@
     <tr>
       <th>#</th>
       <th>
-        <button 
-          class="btn primary btn-image" 
-          [ngClass]="{'menos':imageTable, 'mais': !imageTable }" 
+        <button
+          class="btn primary btn-image"
+          [ngClass]="{'menos':imageTable, 'mais': !imageTable }"
           (click)="toogleImage()">Imagens</button></th>
       <th>Tema</th>
       <th>Local</th>
@@ -31,7 +31,7 @@
     <tr *ngFor="let evento of eventoFiltrados">
       <td>{{evento['eventoId']}}</td>
       <td>
-        <img 
+        <img
         *ngIf="imageTable"
           [style.width.px]="imageWidth"
           [style.margin.px]="imageMargin"

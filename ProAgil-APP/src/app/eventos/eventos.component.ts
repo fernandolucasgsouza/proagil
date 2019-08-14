@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-eventos',
@@ -25,7 +25,7 @@ export class EventosComponent implements OnInit {
 
   public eventoFiltrados: any = [];
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   ngOnInit() {
     this.getEventos();
@@ -51,7 +51,8 @@ export class EventosComponent implements OnInit {
   filtrarEventos(filtraPor: string): any {
     filtraPor = filtraPor.toLocaleLowerCase();
     return this.eventos.filter(
-      evento => evento.tema.toLocaleLowerCase().indexOf(filtraPor) !== -1
+      evento => evento.tema.toLocaleLowerCase().indexOf(filtraPor) !== -1 ||
+        evento.local.toLocaleLowerCase().indexOf(filtraPor) !== -1
     );
   }
 }
